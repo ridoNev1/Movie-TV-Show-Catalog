@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavigationList from "./routes/mainNavigation";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { Navbar } from "./components";
+
+// need change if the app need auth
+const isAuth = false;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="pt-16 min-h-screen">
+        <Routes>
+          {NavigationList.map((el, index) => (
+            <Route
+              path={el.path}
+              exact={el.exact ? true : false}
+              element={
+                el.permission ? (
+                  isAuth ? (
+                    el.component
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                ) : (
+                  el.component
+                )
+              }
+              key={index}
+            />
+          ))}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
