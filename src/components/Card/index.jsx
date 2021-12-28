@@ -6,10 +6,10 @@ import { DateFormat } from "../../lib/DateFormatter";
 const Card = ({ data }) => {
   return (
     <div className="hover:scale-105 transition">
-      <div className="cursor-pointer poppins-font h-full max-w-[220px] bg-white shadow-card border border-gray-100 rounded-lg">
+      <div className="cursor-pointer poppins-font h-full max-w-[220px] bg-white shadow-card rounded-lg">
         <img
           className="rounded-lg rounded-b-none max-h-48 object-cover w-full"
-          src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
+          src={`${process.env.REACT_APP_ASSET_URL}${data?.poster_path}`}
           alt="thumbnail"
           loading="lazy"
         />

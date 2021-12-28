@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Navbar } from "./components";
 
-// need change if the app need auth
+// need change code if the app need auth
 const isAuth = false;
 
 function App() {
