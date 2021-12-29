@@ -10,7 +10,13 @@ import { BiMoviePlay, BiPlus, BiCheckCircle } from "react-icons/bi";
 import { TiStarFullOutline } from "react-icons/ti";
 import { DateFormat } from "../../lib/DateFormatter";
 
-export default function Modal({ isOpen, closeModal, data }) {
+export default function Modal({
+  isOpen,
+  closeModal,
+  data,
+  isMyList,
+  addListed,
+}) {
   const [movieDetail, setMovieDetail] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isListed, setIsListed] = useState(false);
@@ -55,6 +61,16 @@ export default function Modal({ isOpen, closeModal, data }) {
     const newList = myList.filter((el) => el.id !== id);
     localStorage.setItem("my-list", JSON.stringify(newList));
     setIsListed(false);
+  };
+
+  const isListFromListPage = (id) => {
+    isMyList(id);
+    setIsListed(false);
+  };
+
+  const addListFromListPage = (data) => {
+    addListed(data);
+    setIsListed(true);
   };
 
   return (
@@ -138,7 +154,11 @@ export default function Modal({ isOpen, closeModal, data }) {
                           }
                           onClickButton={() =>
                             isListed
-                              ? removeWatchList(data.id)
+                              ? isMyList
+                                ? isListFromListPage(data.id)
+                                : removeWatchList(data.id)
+                              : addListed
+                              ? addListFromListPage(data)
                               : handleMyList(data)
                           }
                         />

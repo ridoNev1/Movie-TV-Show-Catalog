@@ -1,4 +1,4 @@
-import { Home } from "../pages";
+import { Home, MyList } from "../pages";
 
 const routeList = [
   {
@@ -6,6 +6,13 @@ const routeList = [
     path: "/",
     exact: true,
     component: Home,
+    permission: false,
+  },
+  {
+    name: "MyList",
+    path: "/my-list",
+    exact: true,
+    component: MyList,
     permission: false,
   },
 ];

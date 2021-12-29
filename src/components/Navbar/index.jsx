@@ -9,8 +9,10 @@ import axios from "axios";
 import { NoImage } from "../../assets";
 import { IoIosPaper } from "react-icons/io";
 import Modal from "../Modal";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [searchVal, setSearchVal] = useState(null);
   const [searchList, setSearchList] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
@@ -42,7 +44,12 @@ const Navbar = () => {
   return (
     <div className="fixed w-full py-2 poppins-font shadow-md bg-white z-20">
       <div className="mycontainer flex justify-between items-center py-0.5">
-        <img src={Logo} alt="Logo" className="w-28" />
+        <img
+          src={Logo}
+          alt="Logo"
+          className="w-28 cursor-pointer"
+          onClick={() => navigate("/")}
+        />
         <div className="relative">
           <div className="bg-gray-100 rounded grid grid-flow-col divide-x-2 max-w-max p-1">
             <Dropdown
@@ -106,6 +113,7 @@ const Navbar = () => {
             className={
               "bg-secondarypurple text-white px-4 py-1.5 text-sm font-semibold border-solid border-2 border-mainbg-mainpurple focus:outline-none focus:ring-0 rounded-3xl transition delay-75 shadow-md flex"
             }
+            onClick={() => navigate("/my-list")}
           >
             <span>
               <FaUserCircle className="mr-2 h-4 w-4 mt-0.5 opacity-70" />
