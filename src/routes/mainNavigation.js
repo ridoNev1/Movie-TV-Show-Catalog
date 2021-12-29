@@ -5,7 +5,7 @@ const routeList = [
     name: "Home",
     path: "/",
     exact: true,
-    component: <Home />,
+    component: Home,
     permission: false,
   },
 ];

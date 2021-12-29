@@ -3,7 +3,7 @@ import React from "react";
 const Loading = () => {
   return (
     <div>
-      <div class="lds-grid">
+      <div className="lds-grid">
         <div></div>
         <div></div>
         <div></div>

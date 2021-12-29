@@ -9,6 +9,7 @@ const Dropdown = ({
   dropdownOpts,
   title,
   viewMore,
+  onChangeValue,
 }) => {
   const [value, setValue] = useState(null);
 
@@ -77,7 +78,10 @@ const Dropdown = ({
                                 ? "bg-gray-100 text-gray-900"
                                 : "text-gray-700"
                             } flex items-center px-4 py-2 cursor-pointer`}
-                            onClick={() => setValue(el?.name)}
+                            onClick={() => {
+                              setValue(el?.name);
+                              onChangeValue(el?.value);
+                            }}
                           >
                             {el.icon && (
                               <el.icon className="text-xl mr-4 text-gray-600" />

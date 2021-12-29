@@ -24,12 +24,12 @@ function App() {
               element={
                 el.permission ? (
                   isAuth ? (
-                    el.component
+                    <el.component />
                   ) : (
                     <Navigate to="/" />
                   )
                 ) : (
-                  el.component
+                  <el.component />
                 )
               }
               key={index}

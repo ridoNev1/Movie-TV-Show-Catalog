@@ -32,7 +32,7 @@ code {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-line-clamp: 4; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
   @variants responsive {
@@ -56,17 +56,17 @@ code {
   box-shadow: 0px 6px 9px 3px rgba(0, 0, 0, 0.21);
 }
 
-.__styled-border-x::-webkit-scrollbar {
-  width: 0;
-  height: 5px;
+.__styled-border-y::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
 }
 
-.__styled-border-x::-webkit-scrollbar-thumb {
+.__styled-border-y::-webkit-scrollbar-thumb {
   background-color: rgb(211, 211, 211);
   border-radius: 50px;
   cursor: pointer;
 }
 
-.__styled-border-x::-webkit-scrollbar-track {
+.__styled-border-y::-webkit-scrollbar-track {
   background-color: whitesmoke;
 }

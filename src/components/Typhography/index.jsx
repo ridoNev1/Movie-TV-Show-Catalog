@@ -1,8 +1,12 @@
 import React from "react";
 
-const Typhography = ({ title }) => {
+const Typhography = ({ title, color }) => {
   return (
-    <div className="font-semibold text-2xl poppins-font text-secondarypurple drop-shadow">
+    <div
+      className={`${
+        color ? color : "text-secondarypurple"
+      } font-semibold text-2xl poppins-font drop-shadow`}
+    >
       {title}
     </div>
   );
