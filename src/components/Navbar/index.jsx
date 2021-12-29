@@ -1,19 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../Input";
 import Dropdown from "../Dropdown";
 import { typeOptions } from "../../static";
 import { Logo } from "../../assets";
 import { FaUserCircle } from "react-icons/fa";
-import { useState } from "react/cjs/react.development";
 import Loading from "../Loading";
 import axios from "axios";
 import { NoImage } from "../../assets";
+import { IoIosPaper } from "react-icons/io";
+import Modal from "../Modal";
 
 const Navbar = () => {
   const [searchVal, setSearchVal] = useState(null);
   const [searchList, setSearchList] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchBy, setSearchBy] = useState("movie");
+  const [modalOpen, setModalOpen] = useState({
+    status: false,
+    data: null,
+  });
 
   useEffect(() => {
     if (searchVal) {
@@ -30,9 +35,7 @@ const Navbar = () => {
       );
       setSearchList(response.data.results);
     } catch (error) {
-      console.log("====================================");
       console.log(error);
-      console.log("====================================");
     }
   };
 
@@ -63,6 +66,7 @@ const Navbar = () => {
                     <div
                       key={index}
                       className="flex items-center space-x-6 py-2 px-1 rounded cursor-pointer hover:bg-gray-200"
+                      onClick={() => setModalOpen({ status: true, data: el })}
                     >
                       <img
                         src={
@@ -86,7 +90,10 @@ const Navbar = () => {
                     </div>
                   ))
                 ) : (
-                  <span>tidak ada data</span>
+                  <span className="text-subtitle flex items-center">
+                    <IoIosPaper />
+                    Tidak ada data
+                  </span>
                 )
               ) : (
                 <Loading />
@@ -106,6 +113,11 @@ const Navbar = () => {
             My List
           </button>
         </div>
+        <Modal
+          isOpen={modalOpen.status}
+          closeModal={() => setModalOpen({ data: null, status: false })}
+          data={modalOpen.data}
+        />
       </div>
     </div>
   );

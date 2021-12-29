@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { Loading, Typhography, Loading2 } from "../../components";
+import { Loading, Typhography, Loading2, Modal } from "../../components";
 import axios from "axios";
 import Hero from "./Hero";
 const Carousel = React.lazy(() => import("../../components/Carousel"));
@@ -15,6 +15,10 @@ const Home = () => {
   const [topRatedTv, setTopRatedTv] = useState([]);
   const [airingTodayTv, setAiringTodayTv] = useState([]);
   const [peoplePopular, setPeoplePopular] = useState([]);
+  const [modalOpen, setModalOpen] = useState({
+    status: false,
+    data: null,
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -60,16 +64,17 @@ const Home = () => {
 
         setLoading(false);
       } catch (error) {
-        console.log("====================================");
         console.log(error);
-        console.log("====================================");
       }
     })();
   }, []);
 
   return loading === false ? (
     <div>
-      <Hero data={movieNowPlaying} />
+      <Hero
+        data={movieNowPlaying}
+        onRequestDetail={(data) => setModalOpen({ status: true, data: data })}
+      />
       <div className="mt-11">
         <div className="mycontainer my-3">
           <div className="mt-4">
@@ -77,7 +82,12 @@ const Home = () => {
             <div>
               {topRated && topRated.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={topRated} />
+                  <Carousel
+                    data={topRated}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
@@ -87,7 +97,12 @@ const Home = () => {
             <div>
               {moviePopular && moviePopular.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={moviePopular} />
+                  <Carousel
+                    data={moviePopular}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
@@ -97,7 +112,12 @@ const Home = () => {
             <div>
               {upcomingMovie && upcomingMovie.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={upcomingMovie} />
+                  <Carousel
+                    data={upcomingMovie}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
@@ -117,7 +137,12 @@ const Home = () => {
             <div>
               {onAirTv && onAirTv.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={onAirTv} />
+                  <Carousel
+                    data={onAirTv}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
@@ -127,7 +152,12 @@ const Home = () => {
             <div>
               {popularTv && popularTv.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={popularTv} />
+                  <Carousel
+                    data={popularTv}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
@@ -137,7 +167,12 @@ const Home = () => {
             <div>
               {topRatedTv && topRatedTv.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={topRatedTv} />
+                  <Carousel
+                    data={topRatedTv}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
@@ -147,13 +182,23 @@ const Home = () => {
             <div>
               {airingTodayTv && airingTodayTv.length > 0 && (
                 <Suspense fallback={<Loading2 />}>
-                  <Carousel data={airingTodayTv} />
+                  <Carousel
+                    data={airingTodayTv}
+                    onCardClick={(data) =>
+                      setModalOpen({ status: true, data: data })
+                    }
+                  />
                 </Suspense>
               )}
             </div>
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={modalOpen.status}
+        closeModal={() => setModalOpen({ data: null, status: false })}
+        data={modalOpen.data}
+      />
     </div>
   ) : (
     <div className="w-full h-screen flex justify-center items-center">

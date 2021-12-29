@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Card from "../Card";
 
-const CarouselComponent = ({ data }) => {
+const CarouselComponent = ({ data, onCardClick }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -83,7 +83,7 @@ const CarouselComponent = ({ data }) => {
         customLeftArrow={<CustomLeftArrow />}
       >
         {data?.map((el, index) => (
-          <Card key={index} data={el} />
+          <Card key={index} data={el} onClick={(data) => onCardClick(data)} />
         ))}
       </Carousel>
     </div>

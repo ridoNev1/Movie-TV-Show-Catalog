@@ -64,7 +64,7 @@ const CustomLeftArrow = ({ onClick }) => {
   );
 };
 
-const Hero = ({ data }) => {
+const Hero = ({ data, onRequestDetail }) => {
   return (
     <div className="bg-gray-800">
       <div className="mycontainer">
@@ -108,7 +108,10 @@ const Hero = ({ data }) => {
                       <div className="__text-elipsis-many-line text-gray-200 max-w-lg">
                         {el?.overview}
                       </div>
-                      <Button label="View More" />
+                      <Button
+                        label="View More"
+                        onClickButton={() => onRequestDetail(el)}
+                      />
                     </div>
                   </div>
                 </div>
