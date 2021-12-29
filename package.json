@@ -8,6 +8,7 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.24.0",
+    "express": "^4.17.2",
     "nuka-carousel": "^4.8.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -18,7 +19,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node App",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
