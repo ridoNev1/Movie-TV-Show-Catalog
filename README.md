@@ -7,6 +7,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. open project folder and run command "yarn install"
 3. run project using "yarn start"
 
+## Objective
+1. herokulink: https://movie-and-tv-show.herokuapp.com
+2. library & framework: react, tailwind
+3. a. Top rated movies
+   b. Upcoming movies
+   c. Now playing movies
+   d. Popular movies
+   e. Popular TV shows
+   f. Top rated TV shows
+   g. On the air TV shows
+   h. Airing today TV shows
+   i. Popular people
+
 ## ScreenShoot
 ![newsstest6](https://user-images.githubusercontent.com/64463093/147650365-918f006b-2544-463c-8175-3ce897fd93f0.png)
 ![sstest4](https://user-images.githubusercontent.com/64463093/147650375-5a8863aa-a9f7-4867-b2db-9979846718fd.png)
