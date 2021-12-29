@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How To Run
+1. clone from https://github.com/ridoNev1/Movie-TV-Show-Catalog.git
+2. open project folder and run command "yarn install"
+3. run project using "yarn start"
+
+## ScreenShoot
+![newsstest6](https://user-images.githubusercontent.com/64463093/147650365-918f006b-2544-463c-8175-3ce897fd93f0.png)
+![sstest4](https://user-images.githubusercontent.com/64463093/147650375-5a8863aa-a9f7-4867-b2db-9979846718fd.png)
+![sstest1](https://user-images.githubusercontent.com/64463093/147650381-ac645e0c-906b-40c6-9684-182a12c0957a.png)
+![sstest2 1](https://user-images.githubusercontent.com/64463093/147650387-415f252a-8d10-4218-9e42-c627a2a09ede.png)
+![newsstest3](https://user-images.githubusercontent.com/64463093/147650394-fbaf7cf1-0307-49de-9ed2-6ec2f1594d2d.png)
+![newsstest7](https://user-images.githubusercontent.com/64463093/147650400-c70c4c30-668c-4f42-a32a-c7850b08dabe.png)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
